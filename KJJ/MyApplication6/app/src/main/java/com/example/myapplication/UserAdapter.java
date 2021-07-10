@@ -22,7 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
+//import java.util.List;
 
 import static com.example.myapplication.ResultActivity.mJsonString;
 
@@ -31,16 +31,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CustomViewHold
 
     private ArrayList<ClothData> mList ; // = null
     private ArrayList<ClothData> mListAll ; // = null
-    private Activity context ; // = null
-
+    private Activity context ; // = nul
 
     public UserAdapter(Activity context, ArrayList<ClothData> list) {
-        this.mList = list;
-        this.mListAll = list;
+        this.mList = list;      // list
+        this.mListAll = list;   // filtered list
         this.context = context;
     }
 
-    /////////////////
     private onItemListener mListener;
     public void setOnClickListener(onItemListener listener){
         mListener = listener;
@@ -73,17 +71,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CustomViewHold
 
         viewholder.name.setText(mList.get(position).getGoods_name());
         viewholder.price.setText(mList.get(position).getGoods_price());
-        ///////////////////////////
+
         if(mListener != null){
-            final int pos = position;
+//            final int pos = position;
             viewholder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     mListener.onItemClicked(position);
                 }
             });
-        }//////////////////////////////
-
+        }
     }
 
 
@@ -144,7 +141,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CustomViewHold
         protected TextView name;
         protected TextView price;
 
-        public CustomViewHolder(View view) {
+        public CustomViewHolder(final View view) {
             super(view);
             this.image = (ImageView) view.findViewById(R.id.iv_image);
             this.name = (TextView) view.findViewById(R.id.tv_name);
@@ -156,13 +153,26 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CustomViewHold
                     int pos = getAdapterPosition();
 
                     try {
+                        int ii=0;
                         JSONObject jsonObject = new JSONObject(mJsonString);
                         JSONArray jsonArray = jsonObject.getJSONArray("Cloth");
-                        JSONObject item = jsonArray.getJSONObject(pos);
-                        
-                        String aa = item.getString("siteurl");
 
-                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(aa));
+                        String cho = mList.get(pos).getGoods_name();
+
+                        while(true) {
+                            JSONObject itemm = jsonArray.getJSONObject(ii);
+                            String abc = itemm.getString("g_name");
+
+                            if (!cho.equals(abc)) ii = ii + 1;
+                            else break;
+
+                        }
+
+                        JSONObject item = jsonArray.getJSONObject(ii);
+                        String link = item.getString("siteurl");
+
+
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
                         context.startActivity(intent);
 
                     }catch (JSONException e){
@@ -175,22 +185,4 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CustomViewHold
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
