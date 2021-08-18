@@ -1,0 +1,2 @@
+rootProject.name = "ColorFit"
+include ':app'

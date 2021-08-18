@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="15dp"
+
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <!--    <ListView-->
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/recycler_result"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="6"
+        android:divider="#00FF00"
+        android:dividerHeight="1dp"
+        android:fastScrollEnabled="true"
+        android:padding="5dp" />
+
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView_main_result"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:layout_weight="1"-->
+    <!--        android:layout_margin="5dp"-->
+    <!--        android:padding="5dp" />-->
+
+</LinearLayout>
