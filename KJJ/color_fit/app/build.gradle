@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 30 // 28 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.example.color_fit"
-        minSdkVersion 26
-        targetSdkVersion 30
+        minSdkVersion 26 // 15 26
+        targetSdkVersion 28  // 28 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

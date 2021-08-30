@@ -100,7 +100,9 @@ public class CameraActivity extends AppCompatActivity {
                     if (photoFile != null) {
                         photoUri = FileProvider.getUriForFile(getApplicationContext(), getPackageName(), photoFile);
                         intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-                        intent.putExtra("android.intent.extras.LENS_FACING_FRONT", 1);
+//                        intent.putExtra("android.intent.extras.LENS_FACING_FRONT", 1);
+//                        intent.putExtra("android.intent.extras.USE_FRONT_CAMERA", true);
+                        intent.putExtra("android.intent.extras.CAMERA_FACING", 1);
                         // 전면카메라 사용
                         startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
                     }
@@ -152,7 +154,6 @@ public class CameraActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);// 이 라인 해야되나?? 경고떠서 일단함
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bitmap bitmap = BitmapFactory.decodeFile(imageFilePath);
             ExifInterface exif = null;
