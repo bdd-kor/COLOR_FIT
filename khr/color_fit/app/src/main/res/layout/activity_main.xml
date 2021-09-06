@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity"
+    android:background="#FFFFFF">
+
+    <SearchView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:iconifiedByDefault="false"
+        app:queryHint="검색어를 입력하시오" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+
+            <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
+                android:id="@+id/autoViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                tools:ignore="MissingConstraints"></cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager>
+
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:id="@+id/recycler_result"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="6"
+                android:divider="#00FF00"
+                android:dividerHeight="1dp"
+                android:fastScrollEnabled="true"
+                android:padding="5dp"
+                android:nestedScrollingEnabled="false"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>
