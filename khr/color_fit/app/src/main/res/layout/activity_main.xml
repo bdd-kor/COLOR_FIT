@@ -7,14 +7,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
     android:background="#FFFFFF">
-
-    <SearchView
-        android:id="@+id/sv"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        app:iconifiedByDefault="false"
-        app:queryHint="검색어를 입력하시오" />
+        android:orientation="horizontal">
+        <SearchView
+            android:id="@+id/sv"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:iconifiedByDefault="false"
+            app:queryHint="검색어를 입력하시오" />
+        <Button
+            android:gravity="right"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
