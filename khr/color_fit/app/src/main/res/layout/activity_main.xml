@@ -6,6 +6,7 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
+    android:gravity="center"
     android:background="#FFFFFF">
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,11 +18,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             app:iconifiedByDefault="false"
+            style="@style/MySearchViewStyle"
             app:queryHint="검색어를 입력하시오" />
-        <Button
+        <ImageButton
+            android:id="@+id/btnFilter"
             android:gravity="right"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
+            android:layout_width="35dp"
+            android:background="#FFFFFF"
+            android:scaleType="centerInside"
+            android:layout_height="wrap_content"
+            android:src="@drawable/filter"/>
     </LinearLayout>
 
     <ScrollView

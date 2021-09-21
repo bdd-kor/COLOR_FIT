@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -37,7 +38,6 @@ import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 
 public class MainActivity extends AppCompatActivity implements UserAdapter.onItemListener{
     AutoScrollViewPager autoViewPager;
-    private Button btn_cloth;
     private SearchView sv;
     static public String SearchQuery;
     private static String TAG = "phptest_MainActivity";
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
     private EditText mEditTextName;
     private EditText mEditTextCountry;
     private TextView mTextViewResult;
+    private ImageButton btnFilter;
     static public ArrayList<com.example.color_fit.ClothData> mArrayList;
     private UserAdapter mAdapter;
     private RecyclerView mRecyclerView;
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
         data.add("http://121.176.171.155/dd.png");
 
         autoViewPager = (AutoScrollViewPager)findViewById(R.id.autoViewPager);
-        com.example.color_fit.AutoScrollAdapter scrollAdapter = new com.example.color_fit.AutoScrollAdapter(this, data);
+        AutoScrollAdapter scrollAdapter = new AutoScrollAdapter(this, data);
         autoViewPager.setAdapter(scrollAdapter);
         autoViewPager.setInterval(5000);
         autoViewPager.startAutoScroll();
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
         mAdapter.notifyDataSetChanged();
 
 
-        MainActivity.GetData task = new MainActivity.GetData();
+        GetData task = new GetData();
         task.execute("http://121.176.171.155/cloth.php");
 
         sv = findViewById(R.id.sv);
@@ -98,6 +99,14 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
             public boolean onQueryTextChange(String newText) {
                 mAdapter.getFilter().filter(newText);
                 return false;
+            }
+        });
+
+        btnFilter = findViewById(R.id.btnFilter);
+        btnFilter.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, com.example.color_fit.FilterActivity.class);
+                startActivity(intent);
             }
         });
 

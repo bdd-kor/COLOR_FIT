@@ -31,6 +31,7 @@
             android:layout_margin="1dp"
             android:layout_weight="0"
             android:fontFamily="@font/asgsb"
+            android:textColor="#3A136D"
             android:textSize="8dp"
             android:padding="1dp" />
 
@@ -41,6 +42,7 @@
             android:layout_margin="1dp"
             android:layout_weight="0"
             android:fontFamily="@font/asgb"
+            android:textColor="#3A136D"
             android:textSize="12dp"
             android:padding="1dp" />
 
