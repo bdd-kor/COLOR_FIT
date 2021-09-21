@@ -56,13 +56,12 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().setElevation(0);
 
         ArrayList<String> data = new ArrayList<>();
-        data.add("http://3.37.62.27/aa.jpg");
-        data.add("http://3.37.62.27/bb.jpg");
-        data.add("http://3.37.62.27/cc.gif");
-        data.add("http://3.37.62.27/dd.png");
+        data.add("http://121.176.171.155/aa.jpg");
+        data.add("http://121.176.171.155/bb.jpg");
+        data.add("http://121.176.171.155/cc.gif");
+        data.add("http://121.176.171.155/dd.png");
 
         autoViewPager = (AutoScrollViewPager)findViewById(R.id.autoViewPager);
         com.example.color_fit.AutoScrollAdapter scrollAdapter = new com.example.color_fit.AutoScrollAdapter(this, data);
@@ -86,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
 
 
         MainActivity.GetData task = new MainActivity.GetData();
-        task.execute("http://3.37.62.27/cloth.php");
+        task.execute("http://121.176.171.155/cloth.php");
 
         sv = findViewById(R.id.sv);
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

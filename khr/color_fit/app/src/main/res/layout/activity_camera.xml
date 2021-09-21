@@ -7,50 +7,24 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+
+    <ImageView
+        android:id="@+id/iv_result"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_height="400dp"
+        android:layout_marginTop="60dp"
+        android:scaleType="centerInside"
+        android:background="#FFFFFF"
+        android:src="@drawable/caution"/>
 
-        <ImageView
-            android:id="@+id/iv_result"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:id="@+id/messageText"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-
-        <Button
-            android:id="@+id/btn_capture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="촬영" />
-
-        <Button
-            android:id="@+id/uploadButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="다음단계" />
-
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/btn_capture"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:scaleType="centerInside"
+        android:background="#FFFFFF"
+        android:src="@drawable/camera"
+        android:text="촬영" />
 
 </LinearLayout>

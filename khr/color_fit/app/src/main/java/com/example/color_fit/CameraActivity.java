@@ -50,7 +50,7 @@ public class CameraActivity extends AppCompatActivity {
 
     //
     TextView messageText;
-    Button uploadButton;
+//    Button uploadButton;
     int serverResponseCode = 0;
     ProgressDialog dialog = null;
     String upLoadServerUri = null;
@@ -66,9 +66,9 @@ public class CameraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_camera);
 
         //
-        uploadButton = (Button)findViewById(R.id.uploadButton);
-        messageText  = (TextView)findViewById(R.id.messageText);
-        messageText.setText("Uploading file path :- '/mnt/sdcard/"+uploadFileName+"'");
+//        uploadButton = (Button)findViewById(R.id.uploadButton);
+//        messageText  = (TextView)findViewById(R.id.messageText);
+//        messageText.setText("Uploading file path :- '/mnt/sdcard/"+uploadFileName+"'");
 
 
 
@@ -84,7 +84,9 @@ public class CameraActivity extends AppCompatActivity {
                 .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
                 .check();
 
-
+        /************* Php script path ****************/
+        //서버컴퓨터의 ip주소
+        upLoadServerUri = "http://121.176.171.155/UploadToServer.php";
         findViewById(R.id.btn_capture).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,33 +109,12 @@ public class CameraActivity extends AppCompatActivity {
                         startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
                     }
                 }
+
+
+
+
             }
         });
-
-
-
-        //-------------
-        /************* Php script path ****************/
-        upLoadServerUri = "http://3.37.62.27/UploadToServer.php";//서버컴퓨터의 ip주소
-        uploadButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog = ProgressDialog.show(CameraActivity.this, "", "Uploading file...", true);
-                new Thread(new Runnable() {
-                    public void run() {
-                        runOnUiThread(new Runnable() {
-                            public void run() {
-                                messageText.setText("uploading started.....");
-                            }
-                        });
-                        uploadFile(uploadFilePath + "" + uploadFileName);
-                    }
-                }).start();
-            }
-        });
-
-
-
 
     }
 
@@ -214,7 +195,7 @@ public class CameraActivity extends AppCompatActivity {
             }
 
             // 이미지 뷰에 비트맵을 set하여 이미지 표현
-            ((ImageView) findViewById(R.id.iv_result)).setImageBitmap(rotate(bitmap, exifDegree));
+//            ((ImageView) findViewById(R.id.iv_result)).setImageBitmap(rotate(bitmap, exifDegree));
 
 
         }
@@ -272,7 +253,7 @@ public class CameraActivity extends AppCompatActivity {
 
             runOnUiThread(new Runnable() {
                 public void run() {
-                    messageText.setText("Source File not exist :" +uploadFilePath + "" + uploadFileName);
+//                    messageText.setText("Source File not exist :" +uploadFilePath + "" + uploadFileName);
                 }
             });
             return 0;
@@ -333,9 +314,9 @@ public class CameraActivity extends AppCompatActivity {
                             String msg = "File Upload Completed.\n\n uploaded file :  "
                                     +uploadFileName;
 
-                            messageText.setText(msg);
-                            Toast.makeText(CameraActivity.this, "File Upload Complete."+uploadFileName,
-                                    Toast.LENGTH_SHORT).show();
+//                            messageText.setText(msg);
+//                            Toast.makeText(CameraActivity.this, "File Upload Complete."+uploadFileName,
+//                                    Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -350,9 +331,9 @@ public class CameraActivity extends AppCompatActivity {
                 ex.printStackTrace();
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        messageText.setText("MalformedURLException Exception : check script url.");
-                        Toast.makeText(CameraActivity.this, "MalformedURLException",
-                                Toast.LENGTH_SHORT).show();
+//                        messageText.setText("MalformedURLException Exception : check script url.");
+//                        Toast.makeText(CameraActivity.this, "MalformedURLException",
+//                                Toast.LENGTH_SHORT).show();
                     }
                 });
                 Log.e("Upload file to server", "error: " + ex.getMessage(), ex);
@@ -363,9 +344,9 @@ public class CameraActivity extends AppCompatActivity {
 
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        messageText.setText("Got Exception : see logcat ");
-                        Toast.makeText(CameraActivity.this, "Got Exception : see logcat ",
-                                Toast.LENGTH_SHORT).show();
+//                        messageText.setText("Got Exception : see logcat ");
+//                        Toast.makeText(CameraActivity.this, "Got Exception : see logcat ",
+//                                Toast.LENGTH_SHORT).show();
                     }
                 });
                 Log.e("Upload file to server Exception", "Exception : "

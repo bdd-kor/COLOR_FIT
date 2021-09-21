@@ -30,6 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
             android:layout_weight="0"
+            android:fontFamily="@font/asgsb"
+            android:textSize="8dp"
             android:padding="1dp" />
 
         <TextView
@@ -38,6 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
             android:layout_weight="0"
+            android:fontFamily="@font/asgb"
+            android:textSize="12dp"
             android:padding="1dp" />
 
     </LinearLayout>
