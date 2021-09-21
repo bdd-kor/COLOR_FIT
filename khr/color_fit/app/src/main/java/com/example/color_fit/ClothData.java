@@ -8,6 +8,7 @@ public class ClothData {
     private String goods_image;
     private String goods_name;
     private String goods_price;
+    private String goods_category;
 
     public String getGoods_num() {
         return goods_num;
@@ -43,6 +44,13 @@ public class ClothData {
     }
     public void setGoods_price(String goods_price) {
         this.goods_price = goods_price;
+    }
+
+    public String getGoods_category() {
+        return goods_category;
+    }
+    public void setGoods_category(String goods_category) {
+        this.goods_category = goods_category;
     }
 
 

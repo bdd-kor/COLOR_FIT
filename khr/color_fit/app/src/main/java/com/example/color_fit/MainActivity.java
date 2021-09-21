@@ -59,10 +59,10 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
         setContentView(R.layout.activity_main);
 
         ArrayList<String> data = new ArrayList<>();
-        data.add("http://121.176.171.155/aa.jpg");
-        data.add("http://121.176.171.155/bb.jpg");
-        data.add("http://121.176.171.155/cc.gif");
-        data.add("http://121.176.171.155/dd.png");
+        data.add("http://121.176.171.155/a.jpg");
+        data.add("http://121.176.171.155/b.jpg");
+        data.add("http://121.176.171.155/c.jpg");
+        data.add("http://121.176.171.155/d.jpg");
 
         autoViewPager = (AutoScrollViewPager)findViewById(R.id.autoViewPager);
         AutoScrollAdapter scrollAdapter = new AutoScrollAdapter(this, data);
