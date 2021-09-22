@@ -11,9 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class FilterActivity extends AppCompatActivity implements UserAdapter.onItemListener{
 
     private ImageButton btnSpring,btnSummer, btnAutumn, btnWinter;
-    private ImageButton btnOuter, btnTop, btnShirts, btnPants, btnSkirst, btnDress;
+    private ImageButton btnOuter, btnTop, btnShirts, btnPants, btnSkirt, btnDress;
     private boolean sspring, ssummer, sautumn, swinter = true;
-    private boolean souter, s_top, sshirts,spants, sskirts, sdress = true;
+    private boolean souter, s_top, sshirts,spants, sskirt, sdress = true;
+    private ImageButton btnReset, btnSelect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,6 +143,83 @@ public class FilterActivity extends AppCompatActivity implements UserAdapter.onI
                     sshirts = true;
                 }
 
+            }
+        });
+
+        btnPants = findViewById(R.id.btnPants);
+        btnPants.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (spants == true){
+                    btnPants.setImageResource(R.drawable.b_ccat_pants);
+                    spants = false;
+                }
+                else {
+                    btnPants.setImageResource(R.drawable.a_ccat_pants);
+                    spants = true;
+                }
+
+            }
+        });
+
+        btnSkirt = findViewById(R.id.btnSkirt);
+        btnSkirt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (sskirt == true){
+                    btnSkirt.setImageResource(R.drawable.b_ccat_skirt);
+                    sskirt = false;
+                }
+                else {
+                    btnSkirt.setImageResource(R.drawable.a_ccat_skirt);
+                    sskirt = true;
+                }
+
+            }
+        });
+
+        btnDress = findViewById(R.id.btnDress);
+        btnDress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (sdress == true){
+                    btnDress.setImageResource(R.drawable.b_ccat_dress);
+                    sdress = false;
+                }
+                else {
+                    btnDress.setImageResource(R.drawable.a_ccat_dress);
+                    sdress = true;
+                }
+
+            }
+        });
+
+        btnReset = findViewById(R.id.btnReset);
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sspring = ssummer = sautumn = swinter = false;
+                btnSpring.setImageResource(R.drawable.a_scat_spring);
+                btnSummer.setImageResource(R.drawable.a_scat_summer);
+                btnAutumn.setImageResource(R.drawable.a_scat_autumn);
+                btnWinter.setImageResource(R.drawable.a_scat_winter);
+                souter = s_top = sshirts = spants = sskirt = sdress = false;
+                btnOuter.setImageResource(R.drawable.a_ccat_outer);
+                btnTop.setImageResource(R.drawable.a_ccat_top);
+                btnShirts.setImageResource(R.drawable.a_ccat_shirts);
+                btnPants.setImageResource(R.drawable.a_ccat_pants);
+                btnSkirt.setImageResource(R.drawable.a_ccat_skirt);
+                btnDress.setImageResource(R.drawable.a_ccat_dress);
+            }
+        });
+
+        btnSelect = findViewById(R.id.btnSelect);
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FilterActivity.this, com.example.color_fit.MainActivity.class);
+                //intent.putExtra("mode", 0);
+                startActivity(intent);
             }
         });
     }

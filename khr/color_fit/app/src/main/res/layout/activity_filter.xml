@@ -96,7 +96,7 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/a_ccat_shirts"/>
             <ImageButton
-                android:id="@+id/btnPatns"
+                android:id="@+id/btnPants"
                 android:layout_width="60dp"
                 android:layout_height="20dp"
                 android:background="#FFFFFF"

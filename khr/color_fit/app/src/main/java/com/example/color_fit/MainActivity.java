@@ -59,10 +59,10 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
         setContentView(R.layout.activity_main);
 
         ArrayList<String> data = new ArrayList<>();
-        data.add("http://121.176.171.155/a.jpg");
-        data.add("http://121.176.171.155/b.jpg");
-        data.add("http://121.176.171.155/c.jpg");
-        data.add("http://121.176.171.155/d.jpg");
+        data.add("http://211.247.98.249/a.jpg");
+        data.add("http://211.247.98.249/b.jpg");
+        data.add("http://211.247.98.249/c.jpg");
+        data.add("http://211.247.98.249/d.jpg");
 
         autoViewPager = (AutoScrollViewPager)findViewById(R.id.autoViewPager);
         AutoScrollAdapter scrollAdapter = new AutoScrollAdapter(this, data);
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
 
 
         GetData task = new GetData();
-        task.execute("http://121.176.171.155/cloth.php");
+        task.execute("http://211.247.98.249/cloth.php");
 
         sv = findViewById(R.id.sv);
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
