@@ -52,6 +52,7 @@
         <activity android:name=".AutoScrollAdapter" />
         <activity android:name=".PCResultActivity"/>
         <activity android:name=".FilterActivity"/>
+        <activity android:name=".SearchResultActivity"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

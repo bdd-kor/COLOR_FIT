@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class FilterActivity extends AppCompatActivity implements UserAdapter.onItemListener{
 
     private ImageButton btnSpring,btnSummer, btnAutumn, btnWinter;
@@ -15,6 +17,7 @@ public class FilterActivity extends AppCompatActivity implements UserAdapter.onI
     private boolean sspring, ssummer, sautumn, swinter = true;
     private boolean souter, s_top, sshirts,spants, sskirt, sdress = true;
     private ImageButton btnReset, btnSelect;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -214,12 +217,26 @@ public class FilterActivity extends AppCompatActivity implements UserAdapter.onI
         });
 
         btnSelect = findViewById(R.id.btnSelect);
-        btnReset.setOnClickListener(new View.OnClickListener() {
+        btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FilterActivity.this, com.example.color_fit.MainActivity.class);
-                //intent.putExtra("mode", 0);
+                Intent intent = new Intent(FilterActivity.this, com.example.color_fit.SearchResultActivity.class);
+                ArrayList<String> cateArr = new ArrayList<>();
+                if(sspring==true){cateArr.add("봄");}
+                if(ssummer==true){cateArr.add("여름");}
+                if(sautumn==true){cateArr.add("가을");}
+                if(swinter==true){cateArr.add("겨울");}
+                if(souter==true){cateArr.add("아우터");}
+                if(s_top==true){cateArr.add("상의");}
+                if(sshirts==true){cateArr.add("셔츠/블라우스");}
+                if(spants==true){cateArr.add("팬츠/데님");}
+                if(sskirt==true){cateArr.add("스커트");}
+                if(sdress==true){cateArr.add("원피스");}
+
+
+                intent.putExtra("category", cateArr);
                 startActivity(intent);
+
             }
         });
     }

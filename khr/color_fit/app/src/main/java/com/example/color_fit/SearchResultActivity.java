@@ -5,18 +5,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,52 +25,29 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 
-import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
-
-
-public class MainActivity extends AppCompatActivity implements UserAdapter.onItemListener{
-    AutoScrollViewPager autoViewPager;
-    private SearchView sv;
-    static public String SearchQuery;
-    private static String TAG = "phptest_MainActivity";
-
-    private EditText mEditTextName;
-    private EditText mEditTextCountry;
-    private TextView mTextViewResult;
-    private ImageButton btnFilter;
-    static public ArrayList<com.example.color_fit.ClothData> mArrayList;
+public class SearchResultActivity extends AppCompatActivity {
+    private static String TAG = "phptest_SearchResultActivity";
+    static public ArrayList<ClothData> mArrayList;
     private UserAdapter mAdapter;
     private RecyclerView mRecyclerView;
-    private EditText mEditTextSearchKeyword;
     static public String mJsonString;
-    private ListView mListView;
+    int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_search_result);
+
+        Intent intent = getIntent();
+        final String[] cateArr = intent.getStringArrayExtra("category");
 
 
-        ArrayList<String> data = new ArrayList<>();
-        data.add("http://211.247.98.249/a.jpg");
-        data.add("http://211.247.98.249/b.jpg");
-        data.add("http://211.247.98.249/c.jpg");
-        data.add("http://211.247.98.249/d.jpg");
-
-        autoViewPager = (AutoScrollViewPager)findViewById(R.id.autoViewPager);
-        AutoScrollAdapter scrollAdapter = new AutoScrollAdapter(this, data);
-        autoViewPager.setAdapter(scrollAdapter);
-        autoViewPager.setInterval(5000);
-        autoViewPager.startAutoScroll();
-
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_result);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_result2);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this,3));
 
-//        mTextViewResult.setMovementMethod(new ScrollingMovementMethod());
-
         mArrayList = new ArrayList<>();
-
         mAdapter = new UserAdapter(this, mArrayList);
         mRecyclerView.setAdapter(mAdapter);
 
@@ -85,41 +55,12 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
         mArrayList.clear();
         mAdapter.notifyDataSetChanged();
 
-
         GetData task = new GetData();
         task.execute("http://211.247.98.249/cloth.php");
 
-        sv = findViewById(R.id.sv);
-        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                mAdapter.getFilter().filter(newText);
-                return false;
-            }
-        });
-
-        btnFilter = findViewById(R.id.btnFilter);
-        btnFilter.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, com.example.color_fit.FilterActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
+        mAdapter.getFilter2().filter(cateArr[i]);
     }
-
-
-    @Override
-    public void onItemClicked(int position){
-        Toast.makeText(this, ""+position, Toast.LENGTH_SHORT).show();
-    }
-
 
     private class GetData extends AsyncTask<String, Void, String> {
 
@@ -130,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
         protected void onPreExecute() {
             super.onPreExecute();
 
-            progressDialog = ProgressDialog.show(MainActivity.this,
+            progressDialog = ProgressDialog.show(SearchResultActivity.this,
                     "Please Wait", null, true, true);
         }
 
@@ -205,13 +146,13 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
         }
     }
 
-
     private void showResult(){
 
         String TAG_JSON  = "Cloth";
         String TAG_IMAGE = "imgurl";
         String TAG_NAME  = "g_name";
         String TAG_PRICE = "price";
+        String TAG_CATEGORY = "category1";
 
         try {
             JSONObject jsonObject = new JSONObject(mJsonString);
@@ -239,4 +180,6 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
             Log.d(TAG, "showResult : ", e);
         }
     }
+
+
 }

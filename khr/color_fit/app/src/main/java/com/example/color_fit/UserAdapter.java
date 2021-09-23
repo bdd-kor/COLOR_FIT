@@ -97,6 +97,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CustomViewHold
         return exampleFilter;
     }
 
+    public Filter getFilter2() { return exampleFilter2; }
+
     private Filter exampleFilter = new Filter() {
         //Automatic on background thread
         @Override
@@ -129,6 +131,40 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CustomViewHold
             notifyDataSetChanged();
         }
     };
+
+    private Filter exampleFilter2 = new Filter() {
+        //Automatic on background thread
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<com.example.color_fit.ClothData> filteredList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(mListAll);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (com.example.color_fit.ClothData cd : mListAll) {
+                    // TODO filter 대상 setting
+                    if (cd.getGoods_category().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(cd);
+                    }
+                }
+                mList = filteredList;
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+
+        //Automatic on UI thread
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+//            mList.clear();
+//            mList.addAll((List) results.values);
+            mList = (ArrayList<com.example.color_fit.ClothData>)results.values;
+            notifyDataSetChanged();
+        }
+    };
+
 
     public interface onItemListener {
         void onItemClicked(int position);
