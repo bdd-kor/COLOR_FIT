@@ -28,12 +28,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SearchResultActivity extends AppCompatActivity {
+
     private static String TAG = "phptest_SearchResultActivity";
     static public ArrayList<ClothData> mArrayList;
     private UserAdapter mAdapter;
     private RecyclerView mRecyclerView;
     static public String mJsonString;
-    int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +55,14 @@ public class SearchResultActivity extends AppCompatActivity {
         mArrayList.clear();
         mAdapter.notifyDataSetChanged();
 
+        String keyword = "아우터";
+
+
         GetData task = new GetData();
-        task.execute("http://211.247.98.249/cloth.php");
+        task.execute("http://211.247.98.249/test365.php", keyword);
 
 
-        mAdapter.getFilter2().filter(cateArr[i]);
+        //mAdapter.getFilter2().filter(cateArr[i]);
     }
 
     private class GetData extends AsyncTask<String, Void, String> {
@@ -99,7 +102,7 @@ public class SearchResultActivity extends AppCompatActivity {
             String serverURL = params[0];
             try {
 //                String selectData = "xxxx=" + MainActivity.SearchQuery ;
-                String selectData = "xxxx=" + "반팔";
+                String selectData = "category1=" + params[1];
 
                 URL url = new URL(serverURL);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -152,7 +155,6 @@ public class SearchResultActivity extends AppCompatActivity {
         String TAG_IMAGE = "imgurl";
         String TAG_NAME  = "g_name";
         String TAG_PRICE = "price";
-        String TAG_CATEGORY = "category1";
 
         try {
             JSONObject jsonObject = new JSONObject(mJsonString);
