@@ -55,11 +55,12 @@ public class SearchResultActivity extends AppCompatActivity {
         mArrayList.clear();
         mAdapter.notifyDataSetChanged();
 
-        String keyword = "아우터";
+        String cg = "아우터";
+        String pc = "가을";
 
 
         GetData task = new GetData();
-        task.execute("http://211.247.98.249/test365.php", keyword);
+        task.execute("http://211.247.98.249/test365.php", cg, pc);
 
 
         //mAdapter.getFilter2().filter(cateArr[i]);
@@ -102,7 +103,10 @@ public class SearchResultActivity extends AppCompatActivity {
             String serverURL = params[0];
             try {
 //                String selectData = "xxxx=" + MainActivity.SearchQuery ;
-                String selectData = "category1=" + params[1];
+//                String selectData1 = "g_pccode="+params[1];
+                String selectData1 =  (String)params[1];
+                String selectData2 =  (String)params[2];
+                String postParameters = "category=" + selectData1 + "&g_pccode=" + selectData2;
 
                 URL url = new URL(serverURL);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -114,7 +118,9 @@ public class SearchResultActivity extends AppCompatActivity {
                 httpURLConnection.connect();
 
                 OutputStream outputStream = httpURLConnection.getOutputStream();
-                outputStream.write(selectData.getBytes("UTF-8"));
+
+                outputStream.write(postParameters.getBytes("UTF-8"));
+//                outputStream.write(selectData1.getBytes("UTF-8"));
                 outputStream.flush();
                 outputStream.close();
 
