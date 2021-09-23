@@ -41,7 +41,8 @@ public class SearchResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_result);
 
         Intent intent = getIntent();
-        final String[] cateArr = intent.getStringArrayExtra("category");
+        String cg = intent.getStringExtra("cloth");
+        String pc = intent.getStringExtra("season");
 
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_result2);
@@ -55,15 +56,12 @@ public class SearchResultActivity extends AppCompatActivity {
         mArrayList.clear();
         mAdapter.notifyDataSetChanged();
 
-        String cg = "아우터";
-        String pc = "가을";
 
 
         GetData task = new GetData();
         task.execute("http://211.247.98.249/test365.php", cg, pc);
 
 
-        //mAdapter.getFilter2().filter(cateArr[i]);
     }
 
     private class GetData extends AsyncTask<String, Void, String> {

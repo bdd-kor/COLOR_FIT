@@ -10,6 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -17,14 +18,12 @@ import java.util.ArrayList;
 public class FilterActivity extends AppCompatActivity{
 
     private RadioGroup PcGroup, CgGroup;
-    private RadioButton rdSpring, rdSummer, rdAutumn, rdWinter, rdMyPC;
+    private RadioButton rdSpring, rdSummer, rdAutumn, rdWinter;
     private RadioButton rdOuter, rdTop, rdShirts, rdPants, rdSkirt, rdDress;
     private ImageButton btnSelect, btnReset;
-    private int season, cloth = 0;
+    private String season, cloth;
 
 
-
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +34,7 @@ public class FilterActivity extends AppCompatActivity{
         rdSummer=findViewById(R.id.rdSummer);
         rdAutumn=findViewById(R.id.rdAutumn);
         rdWinter=findViewById(R.id.rdWinter);
-        rdMyPC=findViewById(R.id.rdMyPC);
+
 
         CgGroup=findViewById(R.id.ClothGroup);
         rdOuter=findViewById(R.id.rdOuter);
@@ -45,57 +44,69 @@ public class FilterActivity extends AppCompatActivity{
         rdSkirt=findViewById(R.id.rdSkirt);
         rdDress=findViewById(R.id.rdDress);
 
-        switch(PcGroup.getCheckedRadioButtonId()) {
-            case R.id.rdSpring :
-                season = 1;
-                break;
-            case R.id.rdSummer:
-                season = 2;
-                break;
-            case R.id.rdAutumn:
-                season = 3;
-                break;
-            case R.id.rdWinter:
-                season = 4;
-                break;
-            case R.id.rdMyPC:
-                season = 5;
-                break;
-            default:
-                Toast.makeText(getApplicationContext(), "퍼스널 컬러를 선택해 주세요", Toast.LENGTH_SHORT).show();
-        }
 
-        switch(CgGroup.getCheckedRadioButtonId()) {
-            case R.id.rdOuter :
-                cloth = 1;
-                break;
-            case R.id.rdTop:
-                cloth = 2;
-                break;
-            case R.id.rdShirts:
-                cloth = 3;
-                break;
-            case R.id.rdPants:
-                cloth = 4;
-                break;
-            case R.id.rdSkirt:
-                cloth = 5;
-                break;
-            case R.id.rdDress:
-                cloth = 5;
-                break;
-            default:
-                Toast.makeText(getApplicationContext(), "퍼스널 컬러를 선택해 주세요", Toast.LENGTH_SHORT).show();
-        }
+        PcGroup.setVisibility(android.view.View.VISIBLE);
+        PcGroup.clearCheck();
+
+        CgGroup.setVisibility(android.view.View.VISIBLE);
+        CgGroup.clearCheck();
+
+
+        PcGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int i) {
+                if (i == R.id.rdSpring) {
+                    season = "봄";
+                } else if (i == R.id.rdSummer) {
+                    season = "여름";
+                } else if (i == R.id.rdAutumn) {
+                    season = "가을";
+                } else if (i == R.id.rdWinter) {
+                    season = "겨울";
+                }
+
+            }
+        });
+
+
+        CgGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int i) {
+                if (i == R.id.rdOuter) {
+                    cloth = "아우터";
+                } else if (i == R.id.rdSummer) {
+                    cloth = "상의";
+                } else if (i == R.id.rdAutumn) {
+                    cloth = "셔츠/블라우스";
+                } else if (i == R.id.rdWinter) {
+                    cloth = "팬츠/데님";
+                }else if (i == R.id.rdWinter) {
+                    cloth = "스커트";
+                }else if (i == R.id.rdWinter) {
+                    cloth = "원피스";
+                }
+            }
+        });
+
+        btnReset=findViewById(R.id.btnReset);
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PcGroup.clearCheck();
+                CgGroup.clearCheck();
+            }
+        });
+
 
         btnSelect=findViewById(R.id.btnSelect);
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FilterActivity.this, com.example.color_fit.SearchResultActivity.class);
-                ArrayList<String> cateArr = new ArrayList<>();
 
                 intent.putExtra("season", season);
+                intent.putExtra("cloth", cloth);
+
                 startActivity(intent);
 
             }
