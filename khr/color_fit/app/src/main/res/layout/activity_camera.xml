@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
 
@@ -26,5 +27,12 @@
         android:background="#FFFFFF"
         android:src="@drawable/camera"
         android:text="촬영" />
+
+    <Button
+        android:id="@+id/skipbtn"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:backgroundTint="@color/white"
+        android:text="" />
 
 </LinearLayout>

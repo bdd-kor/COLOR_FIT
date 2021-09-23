@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="15dp"
+    android:background="#FFFFFF"
     android:padding="10dp">
 
 

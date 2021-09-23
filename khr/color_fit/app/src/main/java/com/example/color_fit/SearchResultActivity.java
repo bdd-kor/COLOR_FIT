@@ -41,8 +41,10 @@ public class SearchResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_result);
 
         Intent intent = getIntent();
-        String cg = intent.getStringExtra("cloth");
-        String pc = intent.getStringExtra("season");
+//        String cg = intent.getStringExtra("cloth");
+//        String pc = intent.getStringExtra("season");
+        String cg = "아우터";
+        String pc = "가을";
 
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_result2);

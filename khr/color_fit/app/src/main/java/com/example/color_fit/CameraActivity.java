@@ -65,6 +65,16 @@ public class CameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
+        Button skipbtn = findViewById(R.id.skipbtn);
+        skipbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CameraActivity.this, com.example.color_fit.PCResultActivity.class);
+                intent.putExtra("mode", 0);
+                startActivity(intent);
+            }
+        });
+
         //
 //        uploadButton = (Button)findViewById(R.id.uploadButton);
 //        messageText  = (TextView)findViewById(R.id.messageText);

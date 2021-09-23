@@ -64,7 +64,6 @@ public class FilterActivity extends AppCompatActivity{
                 } else if (i == R.id.rdWinter) {
                     season = "겨울";
                 }
-
             }
         });
 
@@ -74,15 +73,15 @@ public class FilterActivity extends AppCompatActivity{
             public void onCheckedChanged(RadioGroup group, int i) {
                 if (i == R.id.rdOuter) {
                     cloth = "아우터";
-                } else if (i == R.id.rdSummer) {
+                } else if (i == R.id.rdTop) {
                     cloth = "상의";
-                } else if (i == R.id.rdAutumn) {
+                } else if (i == R.id.rdShirts) {
                     cloth = "셔츠/블라우스";
-                } else if (i == R.id.rdWinter) {
+                } else if (i == R.id.rdPants) {
                     cloth = "팬츠/데님";
-                }else if (i == R.id.rdWinter) {
+                }else if (i == R.id.rdSkirt) {
                     cloth = "스커트";
-                }else if (i == R.id.rdWinter) {
+                }else if (i == R.id.rdDress) {
                     cloth = "원피스";
                 }
             }
@@ -104,8 +103,8 @@ public class FilterActivity extends AppCompatActivity{
             public void onClick(View v) {
                 Intent intent = new Intent(FilterActivity.this, com.example.color_fit.SearchResultActivity.class);
 
-                intent.putExtra("season", season);
-                intent.putExtra("cloth", cloth);
+//                intent.putExtra("season", season);
+//                intent.putExtra("cloth", cloth);
 
                 startActivity(intent);
 
