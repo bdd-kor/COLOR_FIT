@@ -21,13 +21,15 @@ public class FilterActivity extends AppCompatActivity{
     private RadioButton rdSpring, rdSummer, rdAutumn, rdWinter;
     private RadioButton rdOuter, rdTop, rdShirts, rdPants, rdSkirt, rdDress;
     private ImageButton btnSelect, btnReset;
-    private String season, cloth;
+    private String season = "";
+    private String cloth = "";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
+        getSupportActionBar().setElevation(0);
 
         PcGroup=findViewById(R.id.PcGroup);
         rdSpring=findViewById(R.id.rdSpring);
@@ -93,6 +95,7 @@ public class FilterActivity extends AppCompatActivity{
             public void onClick(View v) {
                 PcGroup.clearCheck();
                 CgGroup.clearCheck();
+                season = cloth = "";
             }
         });
 
@@ -103,8 +106,8 @@ public class FilterActivity extends AppCompatActivity{
             public void onClick(View v) {
                 Intent intent = new Intent(FilterActivity.this, com.example.color_fit.SearchResultActivity.class);
 
-//                intent.putExtra("season", season);
-//                intent.putExtra("cloth", cloth);
+                intent.putExtra("season", season);
+                intent.putExtra("cloth", cloth);
 
                 startActivity(intent);
 

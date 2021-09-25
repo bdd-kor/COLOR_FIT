@@ -4,155 +4,147 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:orientation="vertical">
-    <TextView
-        android:paddingTop="50dp"
-        android:layout_margin="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="23dp"
-        android:fontFamily="@font/asgsb"
-        android:textColor="#3A136D"
-        android:text="퍼스널 컬러"/>
-    <RadioGroup
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/PcGroup"
-        android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/rdSpring"
-                android:layout_width="90dp"
-                android:layout_height="30dp"
-                android:layout_margin="8dp"
-                android:button="@null"
-                android:background="@drawable/selector_radio_button_spring"/>
-            <RadioButton
-                android:id="@+id/rdSummer"
-                android:layout_width="90dp"
-                android:layout_height="30dp"
-                android:layout_margin="8dp"
-                android:button="@null"
-                android:background="@drawable/selector_radio_button_summer"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-        <RadioButton
-            android:id="@+id/rdAutumn"
-            android:layout_width="90dp"
-            android:layout_height="30dp"
-            android:layout_margin="8dp"
-            android:button="@null"
-            android:background="@drawable/selector_radio_button_autumn"/>
-        <RadioButton
-            android:id="@+id/rdWinter"
-            android:layout_width="90dp"
-            android:layout_height="30dp"
-            android:layout_margin="8dp"
-            android:button="@null"
-            android:background="@drawable/selector_radio_button_winter"/>
-    </LinearLayout>
-    </RadioGroup>
-
-    <ImageView
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:background="#FFFFFF"
-        android:scaleType="centerInside"
-        android:src="@drawable/filterline" />
-    <TextView
-        android:paddingTop="50dp"
-        android:layout_margin="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="23dp"
-        android:fontFamily="@font/asgsb"
-        android:textColor="#3A136D"
-        android:text="패션 의류"/>
-    <RadioGroup
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/ClothGroup"
-        android:orientation="vertical">
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:paddingTop="50dp"
+                android:layout_margin="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="23dp"
+                android:fontFamily="@font/asgsb"
+                android:textColor="#3A136D"
+                android:text="퍼스널 컬러"/>
+            <RadioGroup
+                android:id="@+id/PcGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RadioButton
+                    android:id="@+id/rdSpring"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/selector_radio_button_spring"
+                    android:button="@null" />
+                <RadioButton
+                    android:id="@+id/rdSummer"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/selector_radio_button_summer"
+                    android:button="@null" />
+                <RadioButton
+                    android:id="@+id/rdAutumn"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/selector_radio_button_autumn"
+                    android:button="@null" />
+                <RadioButton
+                    android:id="@+id/rdWinter"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/selector_radio_button_winter"
+                    android:button="@null" />
+
+            </RadioGroup>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="60dp"
+            android:background="#FFFFFF"
+            android:scaleType="centerInside"
+            android:src="@drawable/filterline" />
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/rdOuter"
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                android:layout_margin="8dp"
-                android:button="@null"
-                android:background="@drawable/selector_radio_button_outer"/>
-            <RadioButton
-                android:id="@+id/rdTop"
-                android:layout_width="70dp"
-                android:layout_height="30dp"
-                android:layout_margin="8dp"
-                android:button="@null"
-                android:background="@drawable/selector_radio_button_top"/>
-            <RadioButton
-                android:id="@+id/rdShirts"
-                android:layout_width="130dp"
-                android:layout_height="30dp"
-                android:layout_margin="8dp"
-                android:button="@null"
-                android:background="@drawable/selector_radio_button_shirts"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/rdPants"
-                android:layout_width="100dp"
-                android:layout_height="30dp"
-                android:layout_margin="8dp"
-                android:button="@null"
-                android:background="@drawable/selector_radio_button_pants"/>
-            <RadioButton
-                android:id="@+id/rdSkirt"
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                android:layout_margin="8dp"
-                android:button="@null"
-                android:background="@drawable/selector_radio_button_skirt"/>
-            <RadioButton
-                android:id="@+id/rdDress"
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                android:layout_margin="8dp"
-                android:button="@null"
-                android:background="@drawable/selector_radio_button_dress"/>
-        </LinearLayout>
-    </RadioGroup>
+            android:layout_weight="4"
+            android:orientation="vertical">
+            <TextView
+                android:paddingTop="50dp"
+                android:layout_margin="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="23dp"
+                android:fontFamily="@font/asgsb"
+                android:textColor="#3A136D"
+                android:text="패션 의류"/>
+            <RadioGroup
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:id="@+id/ClothGroup"
+                android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:background="#FFFFFF"
-        android:scaleType="centerInside"
-        android:src="@drawable/filterline" />
+                <RadioButton
+                    android:id="@+id/rdOuter"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:button="@null"
+                    android:background="@drawable/selector_radio_button_outer"/>
+                <RadioButton
+                    android:id="@+id/rdTop"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:button="@null"
+                    android:background="@drawable/selector_radio_button_top"/>
+                <RadioButton
+                    android:id="@+id/rdShirts"
+                    android:layout_width="130dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:button="@null"
+                    android:background="@drawable/selector_radio_button_shirts"/>
+
+                <RadioButton
+                    android:id="@+id/rdPants"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:button="@null"
+                    android:background="@drawable/selector_radio_button_pants"/>
+                <RadioButton
+                    android:id="@+id/rdSkirt"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:button="@null"
+                    android:background="@drawable/selector_radio_button_skirt"/>
+                <RadioButton
+                    android:id="@+id/rdDress"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="8dp"
+                    android:button="@null"
+                    android:background="@drawable/selector_radio_button_dress"/>
+
+            </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="60dp"
         android:layout_gravity="bottom">
         <ImageButton
             android:id="@+id/btnReset"
