@@ -48,7 +48,6 @@ public class CameraActivity extends AppCompatActivity {
     private Uri photoUri;
     private MediaScanner mMediaScanner; // 사진 저장 시 갤러리 폴더에 바로 반영사항을 업데이트 시켜주려면 이 것이 필요하다(미디어 스캐닝)
 
-    //
     TextView messageText;
 //    Button uploadButton;
     int serverResponseCode = 0;
@@ -70,7 +69,6 @@ public class CameraActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CameraActivity.this, com.example.color_fit.PCResultActivity.class);
-                intent.putExtra("mode", 0);
                 startActivity(intent);
             }
         });
@@ -96,7 +94,7 @@ public class CameraActivity extends AppCompatActivity {
 
         /************* Php script path ****************/
         //서버컴퓨터의 ip주소
-        upLoadServerUri = "http://121.176.171.155/UploadToServer.php";
+        upLoadServerUri = "http://211.247.98.249/UploadToServer.php";
         findViewById(R.id.btn_capture).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,10 +116,8 @@ public class CameraActivity extends AppCompatActivity {
                         // 전면카메라 사용
                         startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
                     }
+
                 }
-
-
-
 
             }
         });
@@ -207,6 +203,20 @@ public class CameraActivity extends AppCompatActivity {
             // 이미지 뷰에 비트맵을 set하여 이미지 표현
 //            ((ImageView) findViewById(R.id.iv_result)).setImageBitmap(rotate(bitmap, exifDegree));
 
+            dialog = ProgressDialog.show(CameraActivity.this, "", "Uploading file...", true);
+            new Thread(new Runnable() {
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            messageText.setText("uploading started.....");
+                        }
+                    });
+                    uploadFile(uploadFilePath + "" + uploadFileName);
+                }
+            }).start();
+
+            Intent intent2 = new Intent(CameraActivity.this, com.example.color_fit.PCResultActivity.class);
+            startActivity(intent2);
 
         }
     }
