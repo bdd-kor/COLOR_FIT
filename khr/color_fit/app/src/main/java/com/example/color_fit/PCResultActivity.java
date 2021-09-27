@@ -12,6 +12,7 @@ public class PCResultActivity extends AppCompatActivity {
     ImageButton btnGo;
     TextView tvRtAutumn, tv;
     private String season = "";
+    private String cloth = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +66,9 @@ public class PCResultActivity extends AppCompatActivity {
 
         btnGo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                Intent intent = new Intent(PCResultActivity.this, com.example.color_fit.MainActivity.class);
+                Intent intent = new Intent(PCResultActivity.this, com.example.color_fit.SearchResultActivity.class);
                 intent.putExtra("season", season);
+                intent.putExtra("cloth", cloth);
                 startActivity(intent);
             }
         });

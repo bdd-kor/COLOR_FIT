@@ -22,10 +22,13 @@ public class StartActivity extends AppCompatActivity {
         ImageButton btnSTART = findViewById(R.id.rear_camera);
         ImageButton btnPASS = findViewById(R.id.btnPASS);
 
+        String season = "";
+
         btnSTART.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
+
                 Intent intent = new Intent(StartActivity.this, com.example.color_fit.CameraActivity.class);
-                intent.putExtra("mode", 0);
+                intent.putExtra("season", season);
                 startActivity(intent);
             }
         });

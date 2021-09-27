@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -41,7 +42,8 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
     private SearchView sv;
     static public String SearchQuery;
     private static String TAG = "phptest_MainActivity";
-
+    private TextView tvPC;
+    private LinearLayout llout;
     private EditText mEditTextName;
     private EditText mEditTextCountry;
     private TextView mTextViewResult;
@@ -85,14 +87,9 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
         mArrayList.clear();
         mAdapter.notifyDataSetChanged();
 
-        Intent intent = getIntent();
-
-        String cg = "";
-        String pc = intent.getStringExtra("season");
-
 
         GetData task = new GetData();
-        task.execute("http://211.247.98.249/test365.php",cg, pc);
+        task.execute("http://211.247.98.249/cloth.php");
 
         sv = findViewById(R.id.sv);
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -163,10 +160,8 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
             String serverURL = params[0];
             try {
 //                String selectData = "xxxx=" + MainActivity.SearchQuery ;
- //               String selectData = "xxxx=" + "반팔";
-                String selectData1 =  (String)params[1];
-                String selectData2 =  (String)params[2];
-                String postParameters = "category=" + selectData1 + "&g_pccode=" + selectData2;
+                String selectData = "xxxx=" + "반팔";
+
 
                 URL url = new URL(serverURL);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -178,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
                 httpURLConnection.connect();
 
                 OutputStream outputStream = httpURLConnection.getOutputStream();
-                outputStream.write(postParameters.getBytes("UTF-8"));
+                    outputStream.write(selectData.getBytes("UTF-8"));
                 outputStream.flush();
                 outputStream.close();
 
