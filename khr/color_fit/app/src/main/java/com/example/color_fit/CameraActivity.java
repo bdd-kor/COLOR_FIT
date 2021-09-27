@@ -38,6 +38,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 
 import static android.os.Environment.DIRECTORY_PICTURES;
 
@@ -47,7 +48,7 @@ public class CameraActivity extends AppCompatActivity {
     private String imageFilePath;
     private Uri photoUri;
     private MediaScanner mMediaScanner; // 사진 저장 시 갤러리 폴더에 바로 반영사항을 업데이트 시켜주려면 이 것이 필요하다(미디어 스캐닝)
-
+    private int season = 0;
     TextView messageText;
 //    Button uploadButton;
     int serverResponseCode = 0;
@@ -56,6 +57,7 @@ public class CameraActivity extends AppCompatActivity {
 //    final String uploadFilePath = "storage/emulated/0/Pictures/COLORFIT/";
     final String uploadFilePath = Environment.getExternalStoragePublicDirectory(DIRECTORY_PICTURES) + File.separator + "COLORFIT" + File.separator;
     final String uploadFileName = "pcimage.png"; //전송하고자하는 파일 이름
+
 
 
 
@@ -216,7 +218,12 @@ public class CameraActivity extends AppCompatActivity {
                 }
             }).start();
 
+            Random random = new Random();
+
+            season = random.nextInt(4);
+
             Intent intent2 = new Intent(CameraActivity.this, com.example.color_fit.PCResultActivity.class);
+            intent2.putExtra("season", season);
             startActivity(intent2);
 
         }
