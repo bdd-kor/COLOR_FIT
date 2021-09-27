@@ -69,6 +69,7 @@ public class CameraActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CameraActivity.this, com.example.color_fit.PCResultActivity.class);
+
                 startActivity(intent);
             }
         });
