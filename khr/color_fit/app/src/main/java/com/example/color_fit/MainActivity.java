@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
 
 
         GetData task = new GetData();
-        task.execute("http://211.247.98.249/cloth.php");
+        task.execute("http://211.247.98.249/test365.php");
 
         sv = findViewById(R.id.sv);
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
