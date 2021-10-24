@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/a_ccat_top"
+        android:state_checked="false" />
+
+    <item
+        android:drawable="@drawable/b_ccat_top"
+        android:state_checked="true" />
+
+</selector>
