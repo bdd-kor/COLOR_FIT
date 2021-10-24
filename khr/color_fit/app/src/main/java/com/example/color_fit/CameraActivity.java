@@ -56,7 +56,7 @@ public class CameraActivity extends AppCompatActivity {
     String upLoadServerUri = null;
 //    final String uploadFilePath = "storage/emulated/0/Pictures/COLORFIT/";
     final String uploadFilePath = Environment.getExternalStoragePublicDirectory(DIRECTORY_PICTURES) + File.separator + "COLORFIT" + File.separator;
-    final String uploadFileName = "pcimage.png"; //전송하고자하는 파일 이름
+    final String uploadFileName = "pcimage.jpg"; //전송하고자하는 파일 이름
 
 
 
@@ -133,7 +133,7 @@ public class CameraActivity extends AppCompatActivity {
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
                 imageFileName,
-                ".png",
+                ".jpg",
                 storageDir
         );
         imageFilePath = image.getAbsolutePath();
@@ -175,7 +175,7 @@ public class CameraActivity extends AppCompatActivity {
             if (!file.exists())
                 file.mkdirs();
 
-            File f = new File(strFolderName + "/" + filename + ".png");
+            File f = new File(strFolderName + "/" + filename + ".jpg");
             result = f.getPath();
 
             FileOutputStream fOut = null;
@@ -187,7 +187,7 @@ public class CameraActivity extends AppCompatActivity {
             }
 
             // 비트맵 사진 폴더 경로에 저장
-            rotate(bitmap, exifDegree).compress(Bitmap.CompressFormat.PNG, 70, fOut);
+            rotate(bitmap, exifDegree).compress(Bitmap.CompressFormat.JPEG, 70, fOut);
 
             try {
                 fOut.flush();
@@ -197,7 +197,7 @@ public class CameraActivity extends AppCompatActivity {
             try {
                 fOut.close();
                 // 방금 저장된 사진을 갤러리 폴더 반영 및 최신화
-                mMediaScanner.mediaScanning(strFolderName + "/" + filename + ".png");
+                mMediaScanner.mediaScanning(strFolderName + "/" + filename + ".jpg");
             } catch (IOException e) {
                 e.printStackTrace();
                 result = "File close Error";
