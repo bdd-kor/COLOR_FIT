@@ -175,7 +175,7 @@ public class SearchResultActivity extends AppCompatActivity {
                 String goods_name = item.getString(TAG_NAME);
                 String price = item.getString(TAG_PRICE);
 
-                com.example.color_fit.ClothData clothData = new com.example.color_fit.ClothData();
+                ClothData clothData = new ClothData();
 
                 clothData.setGoods_image(imgurl);
                 clothData.setGoods_name(goods_name);

@@ -29,11 +29,11 @@ import static com.example.color_fit.MainActivity.mJsonString;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CustomViewHolder> implements Filterable {
 
-    private ArrayList<com.example.color_fit.ClothData> mList ; // = null
-    private ArrayList<com.example.color_fit.ClothData> mListAll ; // = null
+    private ArrayList<ClothData> mList ; // = null
+    private ArrayList<ClothData> mListAll ; // = null
     private Activity context ; // = nul
 
-    public UserAdapter(Activity context, ArrayList<com.example.color_fit.ClothData> list) {
+    public UserAdapter(Activity context, ArrayList<ClothData> list) {
         this.mList = list;      // list
         this.mListAll = list;   // filtered list
         this.context = context;
@@ -43,7 +43,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CustomViewHold
     public void setOnClickListener(onItemListener listener){
         mListener = listener;
     }
-    public void dataSetChanged(ArrayList<com.example.color_fit.ClothData> exampleList){
+    public void dataSetChanged(ArrayList<ClothData> exampleList){
         mList = exampleList;
         notifyDataSetChanged();
     }
@@ -64,7 +64,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CustomViewHold
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder viewholder, final int position) {
 
-        com.example.color_fit.ClothData item = mList.get(position);
+        ClothData item = mList.get(position);
         Glide.with(viewholder.itemView.getContext())
                 .load(item.getGoods_image())
                 .into(viewholder.image);
@@ -101,13 +101,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CustomViewHold
         //Automatic on background thread
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<com.example.color_fit.ClothData> filteredList = new ArrayList<>();
+            ArrayList<ClothData> filteredList = new ArrayList<>();
 
             if (constraint == null || constraint.length() == 0) {
                 filteredList.addAll(mListAll);
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
-                for (com.example.color_fit.ClothData cd : mListAll) {
+                for (ClothData cd : mListAll) {
                     // TODO filter 대상 setting
                     if (cd.getGoods_name().toLowerCase().contains(filterPattern)) {
                         filteredList.add(cd);
@@ -125,7 +125,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CustomViewHold
         protected void publishResults(CharSequence constraint, FilterResults results) {
 //            mList.clear();
 //            mList.addAll((List) results.values);
-            mList = (ArrayList<com.example.color_fit.ClothData>)results.values;
+            mList = (ArrayList<ClothData>)results.values;
             notifyDataSetChanged();
         }
     };

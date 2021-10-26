@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
     private EditText mEditTextCountry;
     private TextView mTextViewResult;
     private ImageButton btnFilter;
-    static public ArrayList<com.example.color_fit.ClothData> mArrayList;
+    static public ArrayList<ClothData> mArrayList;
     private UserAdapter mAdapter;
     private RecyclerView mRecyclerView;
     private EditText mEditTextSearchKeyword;
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
         btnFilter = findViewById(R.id.btnFilter);
         btnFilter.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, com.example.color_fit.FilterActivity.class);
+                Intent intent = new Intent(MainActivity.this, FilterActivity.class);
                 startActivity(intent);
             }
         });
@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
                 String goods_name = item.getString(TAG_NAME);
                 String price = item.getString(TAG_PRICE);
 
-                com.example.color_fit.ClothData clothData = new com.example.color_fit.ClothData();
+                ClothData clothData = new ClothData();
 
                 clothData.setGoods_image(imgurl);
                 clothData.setGoods_name(goods_name);

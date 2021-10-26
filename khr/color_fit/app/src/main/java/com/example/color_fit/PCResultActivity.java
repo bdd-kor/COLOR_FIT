@@ -66,7 +66,7 @@ public class PCResultActivity extends AppCompatActivity {
 
         btnGo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                Intent intent = new Intent(PCResultActivity.this, com.example.color_fit.SearchResultActivity.class);
+                Intent intent = new Intent(PCResultActivity.this, SearchResultActivity.class);
                 intent.putExtra("season", season);
                 intent.putExtra("cloth", cloth);
                 startActivity(intent);

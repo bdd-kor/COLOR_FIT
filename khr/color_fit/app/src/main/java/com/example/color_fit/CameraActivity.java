@@ -66,7 +66,7 @@ public class CameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
-        Button skipbtn = findViewById(R.id.skipbtn);
+/*        Button skipbtn = findViewById(R.id.skipbtn);
         skipbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +74,7 @@ public class CameraActivity extends AppCompatActivity {
 
                 startActivity(intent);
             }
-        });
+        });*/
 
         //
 //        uploadButton = (Button)findViewById(R.id.uploadButton);
@@ -218,12 +218,12 @@ public class CameraActivity extends AppCompatActivity {
                 }
             }).start();
 
-            Random random = new Random();
+//            Random random = new Random();
+//
+//            season = random.nextInt(4);
 
-            season = random.nextInt(4);
-
-            Intent intent2 = new Intent(CameraActivity.this, com.example.color_fit.PCResultActivity.class);
-            intent2.putExtra("season", season);
+            Intent intent2 = new Intent(CameraActivity.this, DetailTestActivity.class);
+//            intent2.putExtra("season", season);
             startActivity(intent2);
 
         }

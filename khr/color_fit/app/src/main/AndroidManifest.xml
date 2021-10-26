@@ -53,6 +53,8 @@
         <activity android:name=".PCResultActivity"/>
         <activity android:name=".FilterActivity"/>
         <activity android:name=".SearchResultActivity"/>
+        <activity android:name=".DetailTestActivity"/>
+        <activity android:name=".QuestionActivity"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

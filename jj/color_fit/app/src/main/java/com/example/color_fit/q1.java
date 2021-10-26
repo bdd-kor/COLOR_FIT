@@ -19,7 +19,7 @@ import static android.os.Environment.DIRECTORY_PICTURES;
 
 public class q1 extends AppCompatActivity {
     final String uploadFilePath = Environment.getExternalStoragePublicDirectory(DIRECTORY_PICTURES) + File.separator + "COLORFIT" + File.separator;
-    final String uploadFileName = "pcimage.png"; //전송하고자하는 파일 이름
+    final String uploadFileName = "pcimage.jpg"; //전송하고자하는 파일 이름
     ProgressDialog dialog = null;
     String upLoadServerUri = "http://211.247.98.249/UploadToServer.php";
     int serverResponseCode = 0;

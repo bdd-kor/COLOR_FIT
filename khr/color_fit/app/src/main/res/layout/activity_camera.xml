@@ -28,11 +28,11 @@
         android:src="@drawable/camera"
         android:text="촬영" />
 
-    <Button
-        android:id="@+id/skipbtn"
-        android:layout_width="match_parent"
-        android:layout_height="96dp"
-        android:backgroundTint="@color/white"
-        android:text="" />
+<!--    <Button-->
+<!--        android:id="@+id/skipbtn"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="96dp"-->
+<!--        android:backgroundTint="@color/white"-->
+<!--        android:text="" />-->
 
 </LinearLayout>

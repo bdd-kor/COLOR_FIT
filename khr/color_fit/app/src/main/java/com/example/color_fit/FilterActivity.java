@@ -104,7 +104,7 @@ public class FilterActivity extends AppCompatActivity{
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FilterActivity.this, com.example.color_fit.SearchResultActivity.class);
+                Intent intent = new Intent(FilterActivity.this, SearchResultActivity.class);
 
                 intent.putExtra("season", season);
                 intent.putExtra("cloth", cloth);
