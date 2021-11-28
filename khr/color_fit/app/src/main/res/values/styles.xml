@@ -21,4 +21,9 @@
     <style name="SplashTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:windowBackground">@drawable/start</item>
     </style>
+    <style name="CustomRadioTheme" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:colorControlNormal">#3A136D</item>
+        <item name="android:colorControlActivated">#3A136D</item>
+        <item name="android:colorControlHighlight">#3A136D</item>
+    </style>
 </resources>

@@ -86,7 +86,6 @@ public class CameraActivity extends AppCompatActivity {
         // 사진 저장 후 미디어 스캐닝을 돌려줘야 갤러리에 반영됨.
         mMediaScanner = MediaScanner.getInstance(getApplicationContext());
 
-
         // 권한 체크
         TedPermission.with(getApplicationContext())
                 .setPermissionListener(permissionListener)
@@ -107,16 +106,11 @@ public class CameraActivity extends AppCompatActivity {
                     try {
                         photoFile = createImageFile();
                     } catch (IOException e) {
-
                     }
-
                     if (photoFile != null) {
                         photoUri = FileProvider.getUriForFile(getApplicationContext(), getPackageName(), photoFile);
                         intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-//                        intent.putExtra("android.intent.extras.LENS_FACING_FRONT", 1);
-//                        intent.putExtra("android.intent.extras.USE_FRONT_CAMERA", true);
-                        intent.putExtra("android.intent.extras.CAMERA_FACING", 1);
-                        // 전면카메라 사용
+                        intent.putExtra("android.intent.extras.CAMERA_FACING", 1);  // 전면카메라 사용
                         startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
                     }
 

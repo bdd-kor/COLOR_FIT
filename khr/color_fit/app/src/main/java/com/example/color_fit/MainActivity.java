@@ -159,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
         protected String doInBackground(String... params) {
             String serverURL = params[0];
             try {
-//                String selectData = "xxxx=" + MainActivity.SearchQuery ;
                 String selectData = "xxxx=" + "반팔";
 
 
@@ -225,7 +224,6 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.onIte
                 JSONObject item = jsonArray.getJSONObject(i);
 
                 String imgurl = item.getString(TAG_IMAGE);
-//                Drawable imgurl = Drawable.createFromPath(item.getString(TAG_IMAGE));
                 String goods_name = item.getString(TAG_NAME);
                 String price = item.getString(TAG_PRICE);
 

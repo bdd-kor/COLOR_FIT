@@ -27,8 +27,7 @@ public class StartActivity extends AppCompatActivity {
         btnSTART.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
 
-                Intent intent = new Intent(StartActivity.this, com.example.color_fit.CameraActivity.class);
-                intent.putExtra("season", season);
+                Intent intent = new Intent(StartActivity.this, CameraActivity.class);
                 startActivity(intent);
             }
         });
@@ -36,7 +35,7 @@ public class StartActivity extends AppCompatActivity {
         btnPASS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), com.example.color_fit.MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });

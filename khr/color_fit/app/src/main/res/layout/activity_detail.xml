@@ -5,19 +5,25 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <Button
+    <ImageButton
         android:id="@+id/btnYes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:text="더 정확한 결과 확인하기"/>
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:src="@drawable/test_yes"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/btnNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:text="바로 결과 확인하기"/>
-
+        android:layout_marginTop="-70dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:src="@drawable/test_no"/>
 
 </LinearLayout>

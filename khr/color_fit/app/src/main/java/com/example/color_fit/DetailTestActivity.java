@@ -1,15 +1,17 @@
 package com.example.color_fit;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DetailTestActivity extends AppCompatActivity {
 
-    private Button btnYes, btnNo;
+    private ImageButton btnYes, btnNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
