@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/iv_result"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="60dp"
+        android:scaleType="centerInside"
+        android:background="#FFFFFF"
+        android:src="@drawable/caution"/>
+
+    <ImageButton
+        android:id="@+id/btn_capture"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:scaleType="centerInside"
+        android:background="#FFFFFF"
+        android:src="@drawable/camera"
+        android:text="촬영" />
+
+<!--    <Button-->
+<!--        android:id="@+id/skipbtn"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="96dp"-->
+<!--        android:backgroundTint="@color/white"-->
+<!--        android:text="" />-->
+
+</LinearLayout>
