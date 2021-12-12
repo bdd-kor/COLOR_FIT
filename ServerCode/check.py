@@ -104,7 +104,7 @@ elif prediction[0,2] == max(prediction[0]):
     print('fal') #가을
 elif prediction[0,3] == max(prediction[0]):
     print('win') #겨울
-"""
+
 i=0
 if prediction[0,0] == max(prediction[0]):
     i=0
@@ -114,9 +114,9 @@ elif prediction[0,2] == max(prediction[0]):
     i=2
 elif prediction[0,3] == max(prediction[0]):
     i=3
-
+"""
 sys.stdout = open('uploads/pc.txt', 'w')
 
-print(i)
+print(prediction)
 
 sys.stdout.close()
