@@ -2,6 +2,7 @@ package com.example.color_fit;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -14,11 +15,16 @@ public class QuestionActivity extends AppCompatActivity {
     private Button btnResult;
     private RadioGroup rdgQ1, rdgQ2;
     private RadioButton rdBlack, rdRed, rdSilver, rdGold;
+    private String pccode[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
+        int[] pccode = getIntent().getIntArrayExtra("data");
+
+
 
         btnResult = findViewById(R.id.btnResult);
         btnResult.setOnClickListener(new View.OnClickListener() {
@@ -46,9 +52,11 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int i) {
                 if (i == R.id.rdBlack) {
-
+                    pccode[0] += 0.0005;
+                    pccode[2] += 0.0005;
                 } else if (i == R.id.rdRed) {
-
+                    pccode[1] += 0.0005;
+                    pccode[3] += 0.0005;
                 }
             }
         });
@@ -57,12 +65,18 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int i) {
                 if (i == R.id.rdSilver) {
-
+                    pccode[1] += 0.0005;
+                    pccode[3] += 0.0005;
                 } else if (i == R.id.rdGold) {
-
+                    pccode[0] += 0.0005;
+                    pccode[2] += 0.0005;
                 }
             }
         });
+
+        Intent intent = new Intent(this, PCResultActivity.class);
+        intent.putExtra("data", pccode);
+        startActivity(intent);
 
     }
 }

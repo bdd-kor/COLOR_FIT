@@ -13,14 +13,19 @@ public class PCResultActivity extends AppCompatActivity {
     TextView tvRtAutumn, tv;
     private String season = "";
     private String cloth = "";
+    private int pc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pcresult);
 
-        Intent intent = getIntent();
-        int pc = intent.getIntExtra("season",0);
+        int[] pccode = getIntent().getIntArrayExtra("data");
+        int max = pccode[0];
+        int pc;
+        for(pc = 0; pc < pccode.length; pc++){
+            if(max<pccode[pc]) {max = pccode[pc];}
+        }
 
         tv = findViewById(R.id.autumnex);
         tvRtAutumn = findViewById(R.id.tvRtAutumn);
